@@ -5,13 +5,20 @@ What is the 10 001st prime number?
 
 print("Please enter a number to check for prime or not: ")
 userInput = int(input())
+PrimeList = []
+counter = 1
+primeSum = 0
 
+for num in range(1, userInput + 1):
+    if num > 1:
+        for i in range(2, num):
+            if(num % i) == 0:
+                break
+        else:
+            PrimeList.append(num)
 
-for x in range(1, userInput):
-    for y in range(1,userInput):
-        print("This loop is in y " + str(y) + " times!")
-    print("This loop is in x " + str(x) + " times!")
-#while counter <= userInput:
-    #if((userInput % counter == 0) & (userInput % 1 == 0)):
-    #    primeCounter.append(userInput)
-    #counter += 1
+for x in PrimeList:
+    primeSum = primeSum + x
+    #print(x)
+print(len(PrimeList))
+print(primeSum)
