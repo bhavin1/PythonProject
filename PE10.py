@@ -26,7 +26,7 @@ for x in range(startingNumber, 1000000):
             x = ((3*x) + 1)
             terms += 1
     termsArray.append(terms)
-    #print(str(counter) + ": " + str(terms))
+    print(str(counter) + ": " + str(terms))
     terms = 1
     counter += 1
 
