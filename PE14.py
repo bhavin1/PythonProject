@@ -1,33 +1,48 @@
-""" Problem 20
-n! means n × (n − 1) × ... × 3 × 2 × 1
+""" The following iterative sequence is defined for the set of positive integers:
 
-For example, 10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,
-and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
+n → n/2 (n is even)
+n → 3n + 1 (n is odd)
 
-Find the sum of the digits in the number 100!
-"""
+Using the rule above and starting with 13, we generate the following sequence:
+13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1
 
-primeSum = []
+It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.
 
-def fact(f):
-    result = 1
-    for i in range(1, f):
-        #print(i)
-        result *= i
-        print(result)
-    #print(result)
+Which starting number, under one million, produces the longest chain?
+
+NOTE: Once the chain starts the terms are allowed to go above one million. """
+
+counter = 1
+startingNumber = 1
+terms = 1
+termsArray = [0]
+
+for x in range(startingNumber, 1000000):
+    while x != 1:
+        if((x % 2) == 0):
+            x = x / 2
+            terms += 1
+        else:
+            x = ((3*x) + 1)
+            terms += 1
+    termsArray.append(terms)
+    print(str(counter) + ": " + str(terms))
+    terms = 1
+    counter += 1
+
+x = termsArray.index(525)
+termsArray.sort(reverse=False)
+print(termsArray)
+print(x)
+
+"""while counter <= 100:
+    while startingNumber != 1:
+        if((startingNumber % 2) == 0):
+            startingNumber = startingNumber / 2
+            terms += 1
+        else:
+            startingNumber = ((3*startingNumber) + 1)
+            terms += 1
+    print(str(counter) + ": " + str(terms))
+counter += 1"""
     
-    conResult = str(result)
-    
-    for x in conResult:
-        primeSum.append(int(x))
-    
-
-fact(100)
-
-primeAnswer = 0
-
-for x in primeSum:
-    primeAnswer += x
-
-print(primeAnswer)
