@@ -24,7 +24,11 @@ Problem 8
 Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
 """
 
-bigNumber = "7316717653"
+from typing import Counter
+import numpy as np
+
+
+bigNumber = "731671765326245234"
 p = "96983520312774506326239578318016984801869478851843\
 85861560789112949495459501737958331952853208805511\
 12540698747158523863050715693290963295227443043557\
@@ -45,6 +49,15 @@ p = "96983520312774506326239578318016984801869478851843\
 05886116467109405077541002256983155200055935729725\
 71636269561882670428252483600823257530420752963450"
 
+calcSum = 1
+calcArray = []
+for x in range(0, len(bigNumber)):
+    calcArray.append(int(bigNumber[x: x + 4]))
+    #print(bigNumber[x: x + 4] + " = " + str(calcSum))
+
+
+
+"""
 arraySum = []
 startIndex = 0
 endIndex = 0
@@ -53,23 +66,21 @@ counter = 0
 for x in range(len(bigNumber)):
     slice = bigNumber[x:x+1]
     arraySum.append(slice)
-
-
-productArray = 1
-for i in arraySum:
-    print(i)
-    while (counter <= 2):
-        productArray *= int(i)
-        counter += 1
-        #print(productArray)
-        print(i)
-
-
-
-print(arraySum)
-#print(productArray)
-
-
+    productArray = 1
+    for i in arraySum:
+        #print(i)
+        while (counter <= 2):
+            print(str(productArray) + "x" + str(i))
+            productArray = productArray * int(i)
+            counter += 1
+            #print(productArray)
+            #print(i)
+        counter = 0
+        print(arraySum)
+        arraySum.clear()
+        
+    print(productArray)
+"""
 
 """for ol in range(len(bigNumber)):
     print("Start index is: " + str(startIndex))
@@ -78,10 +89,6 @@ print(arraySum)
         arraySum.append(bigNumber[il])
     startIndex += 1
 print(arraySum)"""
-
-
-
-
 
 
 """for l in range(startIndex, endIndex):
