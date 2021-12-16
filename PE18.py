@@ -29,3 +29,29 @@ Find the maximum total from top to bottom of the triangle below:
 
 NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, Problem 67, is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
 """
+
+import random
+
+numArray = ([3][7, 4][2, 4, 6][8, 5, 9, 3])
+sumArray = []
+
+"""
+for x in range(1, 5):
+    
+    for y in range(1, x):
+        r = random.randint(1, 5)
+        numArray.append(r)
+        print(f"[{r}]",end=" ")
+    print(" ")
+"""
+print(numArray)
+for i in numArray:
+    sumTotal = 0
+    k = 1
+    for j in range(k, len(numArray)):
+        sumTotal += j
+        sumArray.append(sumTotal)
+        k += 1
+    #print(f"{sumTotal}")
+
+print(sumArray)
