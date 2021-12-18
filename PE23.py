@@ -8,17 +8,25 @@ As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest numb
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 """
 
-
-x = 4
+p = 36
 divisorArray = []
-divisorSum = 0
-divisorDict = {}
+abundantDict = {}
+deficientDict = {}
 
-for i in range(1, x):
-    if(x % i == 0):
-        divisorArray.append(i)
-        divisorSum += i
-    divisorDict.update({x:divisorSum})
+for p in range(1, p):
+    divisorSum = 0
+    for i in range(1, p):
+        if(p % i == 0):
+            divisorArray.append(i)
+            divisorSum += i
+        if (divisorSum >= p) :
+            abundantDict.update({p:divisorSum})
+        else:
+            deficientDict.update({p:divisorSum})
 
-print(divisorArray)
-print(divisorDict)
+#print(divisorArray)
+for abuK, abuV in abundantDict.items():
+    print(abuK, abuV)
+
+for defK, defV in deficientDict.items():
+    print(defK, defV)

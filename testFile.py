@@ -1,6 +1,7 @@
-from typing import Literal
+from typing import Concatenate, Literal
+import math
 
-name = "Bhavin"
+"""name = "Bhavin"
 age = 30
 
 print(f"My name is {name} and i'm {age} old. The lengh of my name is {len(name)}.")
@@ -27,4 +28,4 @@ else:
 animals = ["Dog", "Cat", "Lion", "Elephant", "Tiger", "Horse"]
 print(animals)
 animals.insert(1,"Zebra")
-print(animals)
+print(animals)"""
