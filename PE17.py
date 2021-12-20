@@ -18,17 +18,22 @@ numberDict = {
     16 : "sixteen", 17 : "seventeen", 18 : "eighteen",
     19 : "nineteen", 20 : "twenty", 30 : "thirty",
     40 : "forty", 50 : "fifty", 60 : "sixty", 
-    70 : "seventy", 80 : "eighty", 90 : "ninty"
+    70 : "seventy", 80 : "eighty", 90 : "ninty",
+    
 }
 
 letterSum = 0
 
 for x in range(1,31):
     output = numberDict.get(x)
-    highNum = str(output)
-    if x > 20:
-        numberDict.get(x).join('one')
-    letterSum += len(highNum)
-    print(output + ": " + str(len(highNum)))
+    for y in output:
+        tempOutput = ""
+        if x > 20:
+            #highNum = output.join('one')
+            tempOutput += numberDict.get(y)
+            print(tempOutput)
+        letterSum = len(tempOutput)
+    letterSum += len(output)
+    print(f"{output}: {len(output)}")
 #print(numberDict)
 print(letterSum)

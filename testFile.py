@@ -1,5 +1,6 @@
 from typing import Concatenate, Literal
 import math
+from decimal import Decimal
 
 """name = "Bhavin"
 age = 30
@@ -30,3 +31,7 @@ print(animals)
 animals.insert(1,"Zebra")
 print(animals)"""
 
+for x in range(2, 1000):
+    v = Decimal(1/x)
+    print(f"{v.as_tuple().exponent} = {v}")
+    #print(v.as_tuple().exponent)
