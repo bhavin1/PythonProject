@@ -29,11 +29,13 @@ else:
 animals = ["Dog", "Cat", "Lion", "Elephant", "Tiger", "Horse"]
 print(animals)
 animals.insert(1,"Zebra")
-print(animals)"""
+print(animals)
 
 for x in range(2, 1000):
     v = Decimal(1/x)
     print(f"{v.as_tuple().exponent} = {v}")
     #print(v.as_tuple().exponent)
+
+"""
 
 
