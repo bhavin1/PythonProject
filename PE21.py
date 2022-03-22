@@ -1,4 +1,4 @@
-""" Problem 21
+""" Problem 21  Solved!
 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
 If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers.
 
@@ -7,97 +7,51 @@ For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 a
 Evaluate the sum of all the amicable numbers under 10000.
 """
 
-#a = 20
-divStoreArray = []
-divSumArray = []
-d2 = []
 
-def amicable(currentNumber):
-    tempSum_1 = 0
-    for i in range(1, currentNumber):
-        if(((currentNumber % i) == 0)):
-            divStoreArray.append(i)
-            tempSum_1 += i
-    divSumArray.append(tempSum_1)
-    print(str(currentNumber) + ": " + str(divSumArray))
-    #print(str(currentNumber) + ": " + str(divStoreArray) + str(divSumArray))
-    #print(divSumArray)
+from itertools import count
 
-def otherAmicable(num):
-    tempSum_2 = 0
-    for i in range(1, num):
-        if(((num % i) == 0)):
-            tempSum_2 += i
-    d2.append(tempSum_2)
-    print(str(i) + ": " + str(d2))
 
-print("===========Run 1===========")
-for x in range(1, 11):
-    divStoreArray.clear()
-    divSumArray.clear()
-    amicable(x)
+amicableArray = []
+amicableArrayTwo = []
+resultArray = []
+finalAnswer = 0
 
-for x in divSumArray:
-    d2.clear()
-    otherAmicable(x)
+searchAmicleNumber = 10000
+
+def findAmicable(inputNumber):
+    tempSum = 0
+    #swapInput = 0
+    counter = 1
+    for x in range(1, inputNumber):
+        if((inputNumber % x) == 0):
+            tempSum = tempSum + x
+            #print(x)
+    amicableArray.append(tempSum)
+    #print(f"{inputNumber} : {tempSum}")
 
 
 
+for x in range(1, searchAmicleNumber):
+    findAmicable(x)
+
+for y in amicableArray:
+    tempSum = 0
+    for z in range(1, y):
+        if((y % z) == 0):
+            tempSum = tempSum + z
+            #print(x)
+    amicableArrayTwo.append(tempSum)
+    #print(f"{y} : {tempSum}")
 
 
 
+for t in range(0, searchAmicleNumber):
+    if(t == amicableArrayTwo[t - 1]) and (t != amicableArray[t - 1]):
+        resultArray.append(amicableArray[t - 1])
+    #print(f"{t} === {amicableArray[t - 1]} === {amicableArrayTwo[t - 1]}")
 
 
+for f in resultArray:
+    finalAnswer += f
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""b = 20
-divisorArray = []
-divSumArray = []
-
-def amicable(n):
-    factorSum = 0
-    for x in range(1,n):
-        if((n % x) == 0):
-            divisorArray.append(x)
-            divSumArray.append(x)
-    calculateSum(divSumArray)
-    print(str(n) + ":" + str(divisorArray) + ": " + str(factorSum))
-    factorSum = 0
-    divisorArray.clear()
-
-    amicableNumSum = 0
-    for x in divisorArray:
-        amicableNumSum += x
-    print(str(divisorArray) + " = " + str(amicableNumSum))
-    divisorArray.append(amicableNumSum)
-
-
-def calculateSum(a):
-    amicableNumSum = 0
-    for x in a:
-        amicableNumSum += x
-    #divSumArray.append(amicableNumSum)
-    print(divSumArray)
-    divSumArray.clear()
-
-for i in range(1, b + 1):
-    amicable(i)
-#print(divisorArray)
-calculateSum(divisorArray)
-#amicable(220)
-#calculateSum(divisorArray)"""
+print(finalAnswer)
