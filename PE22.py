@@ -8,7 +8,7 @@ What is the total of all the name scores in the file?
 
 
 readFile = open("/mnt/c/Users/Bhavin/Downloads/p022_names.txt", "r")
-line = readFile.read().replace(",", "\n")
+#line = readFile.read().replace(",", "\n")
 #print(getFile.readline())
 print(readFile.read())
 
